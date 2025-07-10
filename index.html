@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lettere in Rima - Biglietti Personalizzati</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Georgia', serif;
+line-height: 1.6;
+color: #333;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+/* Header */
+header {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 0;
+}
+
+.logo {
+font-size: 1.8rem;
+font-weight: bold;
+color: #667eea;
+text-decoration: none;
+}
+
+.nav-links {
+display: flex;
+list-style: none;
+gap: 2rem;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #333;
+font-weight: 500;
+transition: color 0.3s;
+}
+
+.nav-links a:hover {
+color: #667eea;
+}
+
+/* Hero Section */
+.hero {
+text-align: center;
+padding: 4rem 0;
+color: white;
+}
+
+.hero h1 {
+font-size: 3rem;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+font-size: 1.2rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.cta-button {
+background: #ff6b6b;
+color: white;
+padding: 1rem 2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s;
+text-decoration: none;
+display: inline-block;
+box-shadow: 0 4px 15px rgba(255,107,107,0.4);
+}
+
+.cta-button:hover {
+background: #ff5252;
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(255,107,107,0.6);
+}
+
+/* Main Content */
+.main-content {
+background: white;
+margin-top: 2rem;
+border-radius: 20px 20px 0 0;
+box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
+}
+
+.section {
+padding: 3rem 0;
+}
+
+.section h2 {
+text-align: center;
+font-size: 2.5rem;
+margin-bottom: 2rem;
+color: #333;
+}
+
+/* How it Works */
+.steps {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.step {
+background: #f8f9fa;
+padding: 2rem;
+border-radius: 15px;
+text-align: center;
+transition: transform 0.3s;
+}
+
+.step:hover {
+transform: translateY(-5px);
+}
+
+.step-number {
+width: 60px;
+height: 60px;
+background: #667eea;
+color: white;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.5rem;
+font-weight: bold;
+margin: 0 auto 1rem;
+}
+
+/* Examples */
+.examples {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.example-card {
+background: #fff;
+border: 2px solid #eee;
+border-radius: 15px;
+padding: 2rem;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+transition: all 0.3s;
+}
+
+.example-card:hover {
+border-color: #667eea;
+transform: translateY(-3px);
+}
+
+.example-card h3 {
+color: #667eea;
+margin-bottom: 1rem;
+}
+
+.example-text {
+font-style: italic;
+color: #666;
+line-height: 1.8;
+background: #f8f9fa;
+padding: 1rem;
+border-radius: 10px;
+border-left: 4px solid #667eea;
+}
+
+/* Order Form */
+.order-form {
+background: #f8f9fa;
+padding: 3rem;
+border-radius: 20px;
+margin: 2rem 0;
+}
+
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: bold;
+color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+padding: 0.8rem;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 1rem;
+transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+outline: none;
+border-color: #667eea;
+}
+
+.form-group textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+}
+
+/* Pricing */
+.pricing {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.price-card {
+background: white;
+border: 2px solid #eee;
+border-radius: 15px;
+padding: 2rem;
+text-align: center;
+transition: all 0.3s;
+position: relative;
+overflow: hidden;
+}
+
+.price-card:hover {
+border-color: #667eea;
+transform: translateY(-5px);
+}
+
+.price-card.featured {
+border-color: #ff6b6b;
+transform: scale(1.05);
+}
+
+.price-card.featured::before {
+content: "PIÙ RICHIESTA";
+position: absolute;
+top: 20px;
+right: -30px;
+background: #ff6b6b;
+color: white;
+padding: 5px 40px;
+transform: rotate(45deg);
+font-size: 0.8rem;
+font-weight: bold;
+}
+
+.price {
+font-size: 2.5rem;
+font-weight: bold;
+color: #667eea;
+margin-bottom: 1rem;
+}
+
+.price-features {
+list-style: none;
+margin-bottom: 2rem;
+}
+
+.price-features li {
+padding: 0.5rem 0;
+border-bottom: 1px solid #eee;
+}
+
+.price-features li:last-child {
+border-bottom: none;
+}
+
+/* Footer */
+footer {
+background: #333;
+color: white;
+text-align: center;
+padding: 2rem 0;
+margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 2rem;
+}
+
+.form-row {
+grid-template-columns: 1fr;
+}
+
+.nav-links {
+display: none;
+}
+}
+
+/* Animations */
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.animate-fade-in {
+animation: fadeInUp 0.8s ease-out;
+}
+
+/* Success Message */
+.success-message {
+background: #4CAF50;
+color: white;
+padding: 1rem;
+border-radius: 8px;
+margin-top: 1rem;
+display: none;
+}
+</style>
+</head>
+<body>
+<header>
+<nav class="container">
+<a href="#" class="logo">✍️ Lettere in Rima</a>
+<ul class="nav-links">
+<li><a href="#come-funziona">Come Funziona</a></li>
+<li><a href="#esempi">Esempi</a></li>
+<li><a href="#prezzi">Prezzi</a></li>
+<li><a href="#ordina">Ordina Ora</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<div class="container">
+<h1 class="animate-fade-in">Lettere Personalizzate in Rima</h1>
+<p class="animate-fade-in">Trasforma i tuoi sentimenti in versi unici e memorabili</p>
+<a href="#ordina" class="cta-button animate-fade-in">Crea la Tua Lettera</a>
+</div>
+</section>
+
+<div class="main-content">
+<div class="container">
+<section id="come-funziona" class="section">
+<h2>Come Funziona</h2>
+<div class="steps">
+<div class="step">
+<div class="step-number">1</div>
+<h3>Descrivi</h3>
+<p>Raccontaci della persona destinataria e dell'occasione. Più dettagli ci dai, più personalizzata sarà la lettera.</p>
+</div>
+<div class="step">
+<div class="step-number">2</div>
+<h3>Creo</h3>
+<p>Scrivo personalmente la tua lettera in rima, curando ogni verso per renderla unica e speciale.</p>
+</div>
+<div class="step">
+<div class="step-number">3</div>
+<h3>Ricevi</h3>
+<p>Entro 24-48 ore ricevi la tua lettera in formato digitale elegante, pronta per essere condivisa o stampata.</p>
+</div>
+</div>
+</section>
+
+<section id="esempi" class="section">
+<h2>Esempi delle Nostre Lettere</h2>
+<div class="examples">
+<div class="example-card">
+<h3>💕 Lettera d'Amore</h3>
+<div class="example-text">
+Nel tuo sguardo trovo la mia pace,<br>
+come stella che nel buio splende e tace.<br>
+Ogni battito del cuore pronuncia il tuo nome,<br>
+sei la mia primavera, il mio dolce come...
+</div>
+</div>
+<div class="example-card">
+<h3>🎂 Auguri di Compleanno</h3>
+<div class="example-text">
+Oggi è il giorno che festeggiamo te,<br>
+persona speciale, unica com'è.<br>
+Gli anni passano ma tu resti giovane,<br>
+con quel sorriso che sempre commuove...
+</div>
+</div>
+<div class="example-card">
+<h3>🙏 Lettera di Scuse</h3>
+<div class="example-text">
+So che ho sbagliato, non posso negare,<br>
+ma il mio cuore sincero vuole riparare.<br>
+Chiedo perdono con umiltà vera,<br>
+sperando in una nuova primavera...
+</div>
+</div>
+</div>
+</section>
+
+<section id="prezzi" class="section">
+<h2>I Nostri Prezzi</h2>
+<div class="pricing">
+<div class="price-card">
+<h3>Lettera Breve</h3>
+<div class="price">€19</div>
+<ul class="price-features">
+<li>4-8 versi</li>
+<li>Perfetta per messaggi semplici</li>
+<li>Formato digitale elegante</li>
+<li>Consegna in 24-48h</li>
+</ul>
+<button class="cta-button">Scegli</button>
+</div>
+<div class="price-card featured">
+<h3>Lettera Standard</h3>
+<div class="price">€35</div>
+<ul class="price-features">
+<li>12-16 versi</li>
+<li>Ideale per occasioni speciali</li>
+<li>Design personalizzato</li>
+<li>Consegna in 24-48h</li>
+<li>Una revisione inclusa</li>
+</ul>
+<button class="cta-button">Scegli</button>
+</div>
+<div class="price-card">
+<h3>Lettera Premium</h3>
+<div class="price">€55</div>
+<ul class="price-features">
+<li>20+ versi</li>
+<li>Poesia completa</li>
+<li>Design luxury</li>
+<li>Consegna prioritaria</li>
+<li>Due revisioni incluse</li>
+<li>Versione stampabile HD</li>
+</ul>
+<button class="cta-button">Scegli</button>
+</div>
+</div>
+</section>
+
+<section id="ordina" class="section">
+<h2>Ordina la Tua Lettera</h2>
+<div class="order-form">
+<form id="orderForm">
+<div class="form-row">
+<div class="form-group">
+<label for="nome">Il Tuo Nome</label>
+<input type="text" id="nome" name="nome" required>
+</div>
+<div class="form-group">
+<label for="email">La Tua Email</label>
+<input type="email" id="email" name="email" required>
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label for="destinatario">Nome del Destinatario</label>
+<input type="text" id="destinatario" name="destinatario" required>
+</div>
+<div class="form-group">
+<label for="occasione">Occasione</label>
+<select id="occasione" name="occasione" required>
+<option value="">Seleziona...</option>
+<option value="amore">Lettera d'Amore</option>
+<option value="compleanno">Compleanno</option>
+<option value="anniversario">Anniversario</option>
+<option value="scuse">Scuse</option>
+<option value="ringraziamento">Ringraziamento</option>
+<option value="altro">Altro</option>
+</select>
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label for="pacchetto">Pacchetto</label>
+<select id="pacchetto" name="pacchetto" required>
+<option value="">Seleziona...</option>
+<option value="breve">Lettera Breve - €19</option>
+<option value="standard">Lettera Standard - €35</option>
+<option value="premium">Lettera Premium - €55</option>
+</select>
+</div>
+<div class="form-group">
+<label for="tono">Tono Desiderato</label>
+<select id="tono" name="tono" required>
+<option value="">Seleziona...</option>
+<option value="romantico">Romantico</option>
+<option value="divertente">Divertente</option>
+<option value="formale">Formale</option>
+<option value="giocoso">Giocoso</option>
+<option value="emozionante">Emozionante</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label for="caratteristiche">Caratteristiche del Destinatario</label>
+<textarea id="caratteristiche" name="caratteristiche"
+placeholder="Descrivimi la persona: hobbies, caratteristiche fisiche, personalità, ricordi speciali insieme..." required></textarea>
+</div>
+
+<div class="form-group">
+<label for="messaggio">Cosa Vuoi Comunicare?</label>
+<textarea id="messaggio" name="messaggio"
+placeholder="Cosa vuoi dire a questa persona? Quali sentimenti vuoi esprimere?" required></textarea>
+</div>
+
+<div class="form-group">
+<label for="dettagli">Dettagli Aggiuntivi</label>
+<textarea id="dettagli" name="dettagli"
+placeholder="Riferimenti specifici, ricordi particolari, o richieste speciali..."></textarea>
+</div>
+
+<button type="submit" class="cta-button">Ordina Ora - Paga alla Consegna</button>
+
+<div class="success-message" id="successMessage">
+✅ Ordine ricevuto! Ti contatteremo entro 2 ore per confermare i dettagli e iniziare la creazione della tua lettera personalizzata.
+</div>
+</form>
+</div>
+</section>
+</div>
+</div>
+
+<footer>
+<div class="container">
+<p>&copy; 2025 Lettere in Rima. Creato con ❤️ per celebrare i tuoi momenti speciali.</p>
+</div>
+</footer>
+
+<script>
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({
+behavior: 'smooth'
+});
+});
+});
+
+// Form submission
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Get form data
+const formData = new FormData(this);
+const data = {};
+formData.forEach((value, key) => {
+data[key] = value;
+});
+
+// Simulate form submission
+console.log('Ordine ricevuto:', data);
+
+// Show success message
+document.getElementById('successMessage').style.display = 'block';
+
+// Reset form
+this.reset();
+
+// Scroll to success message
+document.getElementById('successMessage').scrollIntoView({
+behavior: 'smooth'
+});
+});
+
+// Add animation on scroll
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('animate-fade-in');
+}
+});
+}, observerOptions);
+
+// Observe elements for animation
+document.querySelectorAll('.step, .example-card, .price-card').forEach(el => {
+observer.observe(el);
+});
+</script>
+</body>
+</html>
