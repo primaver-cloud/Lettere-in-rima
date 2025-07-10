@@ -10,7 +10,6 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
-
 body {
 font-family: 'Georgia', serif;
 line-height: 1.6;
@@ -18,7 +17,6 @@ color: #333;
 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 min-height: 100vh;
 }
-
 .container {
 max-width: 1200px;
 margin: 0 auto;
@@ -347,13 +345,31 @@ animation: fadeInUp 0.8s ease-out;
 }
 
 /* Success Message */
-.success-message {
-background: #4CAF50;
-color: white;
+.payment-info {
+background: #e8f5e8;
+border: 2px solid #4CAF50;
+border-radius: 10px;
 padding: 1rem;
-border-radius: 8px;
 margin-top: 1rem;
-display: none;
+text-align: center;
+}
+
+.payment-methods {
+display: flex;
+justify-content: center;
+gap: 1rem;
+margin-top: 1rem;
+flex-wrap: wrap;
+}
+
+.payment-method {
+background: white;
+border: 2px solid #ddd;
+border-radius: 8px;
+padding: 1rem;
+text-align: center;
+flex: 1;
+min-width: 150px;
 }
 </style>
 </head>
@@ -479,7 +495,7 @@ sperando in una nuova primavera...
 <section id="ordina" class="section">
 <h2>Ordina la Tua Lettera</h2>
 <div class="order-form">
-<form id="orderForm">
+<form id="orderForm" action="https://formspree.io/f/TUA_EMAIL_QUI" method="POST">
 <div class="form-row">
 <div class="form-group">
 <label for="nome">Il Tuo Nome</label>
@@ -553,8 +569,29 @@ placeholder="Riferimenti specifici, ricordi particolari, o richieste speciali...
 
 <button type="submit" class="cta-button">Ordina Ora - Paga alla Consegna</button>
 
+<!-- Campi nascosti per email professionale -->
+<input type="hidden" name="_subject" value="🎯 Nuovo Ordine Lettera Personalizzata">
+<input type="hidden" name="_cc" value="tuaemail@gmail.com">
+<input type="hidden" name="_autoresponse" value="Grazie per il tuo ordine! Ti contatteremo entro 2 ore per confermare i dettagli. 📝✨">
+<input type="hidden" name="_template" value="table">
+
 <div class="success-message" id="successMessage">
 ✅ Ordine ricevuto! Ti contatteremo entro 2 ore per confermare i dettagli e iniziare la creazione della tua lettera personalizzata.
+
+<div class="payment-info">
+<h4>💳 Come Pagare</h4>
+<p>Ti invieremo il link di pagamento insieme alla lettera finita</p>
+<div class="payment-methods">
+<div class="payment-method">
+<strong>PayPal</strong><br>
+<small>Carta o conto PayPal</small>
+</div>
+<div class="payment-method">
+<strong>Bonifico</strong><br>
+<small>IBAN italiano</small>
+</div>
+</div>
+</div>
 </div>
 </form>
 </div>
